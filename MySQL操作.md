@@ -7,14 +7,20 @@
 
 登陆数据库：mysql -h（ip） -u root -p//输入ip可登陆他人数据库，端口要一样
 
+解决问题：<br>
+远程登陆若出现错误 Authentication plugin 'caching_sha2_password' cannot be loaded 需要兼容新老版本的认证方式<br>
+>> ALTER USER 'root'@'localhost' IDENTIFIED BY 'root' PASSWORD EXPIRE NEVER; #修改加密规则 <br>
+>> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root'; #更新一下用户的密码<br>
+>> FLUSH PRIVILEGES; #刷新权限<br>
+
 进入一个库：use 数据库名
 
 使用数据库：
 	查询当前正在使用的数据库名称：select database();
 	使用数据库：use <数据库名>;
 
-单行注释：-- 注释 或者 #注释
-多行注释：/*注释*/
+单行注释：-- 注释 或者 #注释<br>
+多行注释：/*注释*/<br>
 
 数据库的关键字不区分大小写
 
