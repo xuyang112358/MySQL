@@ -37,7 +37,7 @@ ERROR 1819 (HY000): Your password does not satisfy the current policy requiremen
 重复密码设置
 ### 第十一步： 开启远程登录，授权root远程登录
 （解释：不要以为阿里云服务器可以远程登录root用户，就以为我们也可以以mysql的root用户身份远程登录mysql数据库）<br>
-mysql>GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'alliance' WITH GRANT OPTION; <br> 
+mysql>GRANT ALL PRIVILEGES ON \*.\* TO 'root'@'%' IDENTIFIED BY 'alliance' WITH GRANT OPTION; <br> 
 GRANT 权限 on 数据库名.表名 用户名@登录主机 identified by '用户密码'; <br>
 //这里的alliance要换成你自己mysql数据库的密码
 ### 第十二步： 命令立即执行生效
@@ -46,7 +46,7 @@ mysql>flush privileges;<br>
 Mysql是为了安全考虑，初始的时候并没有开启Root用户<br>
 （解释：mysql的root用户和我们云服务器的root用户是两个不同的，分开的）的远程访问权限，Root（解释：这里是指mysql的root用户，而不是云服务器的root用户）<br>
 只能本地localhost，127.0.0.1访问，但是我们操作起来实在是不方便，下面我们就使用Xshell连接Linux服务器操作Mysql给Root用户（解释：这里是指mysql的root用户，<br>
-而不是云服务器的root用户）添加远程访问权限。（**解释：**上面的第十二步，就是授权其他工具可以远程以mysql的root用户的身份登录mysql<br>
+而不是云服务器的root用户）添加远程访问权限。（**解释：**上面的第十一步，就是授权其他工具可以远程以mysql的root用户的身份登录mysql<br>
 （解释：这里是指mysql的root用户，而不是云服务器的root用户））<br>
 ### 第十三步： 用数据库图形界面连接
 在安全组中添加3306端口
