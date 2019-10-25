@@ -38,6 +38,7 @@ ERROR 1819 (HY000): Your password does not satisfy the current policy requiremen
 ### 第十一步： 开启远程登录，授权root远程登录
 （解释：不要以为阿里云服务器可以远程登录root用户，就以为我们也可以以mysql的root用户身份远程登录mysql数据库）<br>
 mysql>GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'alliance' WITH GRANT OPTION; <br> 
+GRANT 权限 on 数据库名.表名 用户名@登录主机 identified by '用户密码'; <br>
 //这里的alliance要换成你自己mysql数据库的密码
 ### 第十二步： 命令立即执行生效
 mysql>flush privileges;<br>
