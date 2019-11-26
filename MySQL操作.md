@@ -22,9 +22,29 @@
 单行注释：-- 注释 或者 #注释<br>
 多行注释：/*注释*/<br>
 
-数据库的关键字不区分大小写
+数据库的关键字不区分大小写<br>
 
-退出数据库：exit（quit）
+退出数据库：exit（quit）<br>
+
+
+/*授予用户通过外网IP对于该数据库的全部权限*/<br>
+
+　　grant all privileges on `test`.* to 'test'@'%' ;<br>
+
+　 /*授予用户在本地服务器对该数据库的全部权限*/<br>
+
+　　grant all privileges on `test`.* to 'test'@'localhost';   <br>
+  
+   grant select on test.* to 'user1'@'localhost';  /*给予查询权限*/<br>
+
+   grant insert on test.* to 'user1'@'localhost'; /*添加插入权限*/<br>
+
+   grant delete on test.* to 'user1'@'localhost'; /*添加删除权限*/<br>
+
+   grant update on test.* to 'user1'@'localhost'; /*添加权限*/<br>
+
+　 flush privileges; /*刷新权限*/<br>
+
 
 # 数据定义语言DDL（Data Ddefinition Language）
 create,drop,alter主要为以上操作 操作数据库和表。
