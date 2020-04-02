@@ -27,13 +27,14 @@
 ### 第八步： 查看MySql默认密码
  grep 'temporary password' /var/log/mysqld.log   
 ### 第九步： 登陆MySql，输入用户名和密码
-mysql -uroot -p       //密码也就是第九步里面查看到的默认密码
+mysql -uroot -p       //密码也就是第八步里面查看到的默认密码
 ### 第十步： 修改当前用户密码 注意看下面的报错
 mysql>SET PASSWORD = PASSWORD('alliance');  //但是这样会报错的，具体错误看下面
 注：直接复制粘贴上边的命令，会报错，错误如下<br>
 ERROR 1819 (HY000): Your password does not satisfy the current policy requirements<br>
 解决方法：设置密码的验证强度等级，设置 validate_password_policy 的全局参数为 LOW 即可，<br>
 输入设值语句 “ set global validate_password_policy=LOW; ” 进行设值<br>
+修改规定的密码长度“ set global validate_password_length=4; ” 进行设值<br>
 重复密码设置
 ### 第十一步： 开启远程登录，授权root远程登录
 （解释：不要以为阿里云服务器可以远程登录root用户，就以为我们也可以以mysql的root用户身份远程登录mysql数据库）<br>
